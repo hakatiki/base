@@ -17,7 +17,7 @@ public class TrainControllerImpl implements TrainController{
         	}
     	};
 		Timer timer = new Timer("Timer");
-		timer.schedule(task, 1000);
+		timer.schedule(task, 420);
 	}
 
 	@Override
