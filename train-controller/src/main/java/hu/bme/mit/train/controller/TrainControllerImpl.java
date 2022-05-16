@@ -33,11 +33,6 @@ public class TrainControllerImpl implements TrainController{
 		}
 	}
 
-	private void followSpeedCycle(){
-		followSpeed();
-		sleep(1000);
-	}
-
 	@Override
 	public int getReferenceSpeed() {
 		return referenceSpeed;
