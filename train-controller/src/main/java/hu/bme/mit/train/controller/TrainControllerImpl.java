@@ -4,7 +4,7 @@ import hu.bme.mit.train.interfaces.TrainController;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class TrainControllerImpl implements TrainController {
+public class TrainControllerImpl implements TrainController{
 
 	private int step = 0;
 	private int referenceSpeed = 0;
@@ -22,6 +22,16 @@ public class TrainControllerImpl implements TrainController {
 		}, 0, 1000);
 	}
 
+	public TrainControllerImpl(){
+		TimerTask task = new TimerTask() {
+        	public void run() {
+        	    followSpeed();
+        	}
+    	};
+		Timer timer = new Timer("Timer");
+		timer.schedule(task, 420);
+	}
+
 	@Override
 	public void followSpeed() {
 		if (referenceSpeed < 0) {
@@ -33,8 +43,6 @@ public class TrainControllerImpl implements TrainController {
 		        referenceSpeed = 0;
             }
 		}
-
-		enforceSpeedLimit();
 	}
 
 	@Override
